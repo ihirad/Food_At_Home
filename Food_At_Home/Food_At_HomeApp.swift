@@ -13,8 +13,9 @@ struct Food_At_HomeApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            HomeView()
                 .environment(databaseManager)
+
         }
     }
 }

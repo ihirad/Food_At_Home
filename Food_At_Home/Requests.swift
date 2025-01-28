@@ -24,3 +24,5 @@ struct Ingredient: Codable {
     let id: Int
     let ingredient: String
 }
+
+

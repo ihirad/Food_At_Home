@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 @Observable
 class DatabaseManager {
     let baseURL = URL(string: "http://127.0.0.1:5000")!
@@ -43,6 +44,8 @@ class DatabaseManager {
     
     func fetchPantry() async {
         let url = baseURL.appendingPathComponent("ingredients")
+        
+//        let pantryRequest = Ingredient(ingredients: [ingredient])
         
         // Build request (GET)
         var request = URLRequest(url: url)

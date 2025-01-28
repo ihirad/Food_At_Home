@@ -11,30 +11,25 @@ struct LoginView: View {
     @Environment(DatabaseManager.self) var databaseManager: DatabaseManager
     
     @State var username: String = ""
-    @State var password: String = ""
+    @State var password: String = "securepassword123"
+    @State private var isRegistering = false
 
     var body: some View {
         VStack(spacing: 20) {
-            if databaseManager.signedIn {
-                Text("Signed In")
-            } else {
-                Text("Not Signed In")
-            }
-            
-            Text("Login")
+            Text(isRegistering ? "Register" : "Login")
                 .font(.largeTitle)
             
             TextField("Username", text: $username)
                 .autocapitalization(.none)
                 .autocorrectionDisabled()
                 .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(8)
             
-            TextField("Password", text: $password)
+            SecureField("Password", text: $password)
+                .autocapitalization(.none)
+                .autocorrectionDisabled()
                 .padding()
-                .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(8)
             
