@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct Food_At_HomeApp: App {
+    @State var databaseManager = DatabaseManager()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView()
+                .environment(databaseManager)
         }
     }
 }
